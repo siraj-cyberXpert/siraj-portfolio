@@ -14,5 +14,76 @@ body{background:#020617;color:#e5e7eb}
 .card:hover{transform:translateY(-8px);box-shadow:0 0 15px #38bdf8}
 footer{text-align:center;padding:20px;background:#020617;border-top:1px solid #38bdf8}
 @media(max-width:768px){
-.navbar ul{display:none}
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: #020617;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.logo span {
+  color: #38bdf8;
+}
+
+/* Nav Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+/* Animated Buttons */
+.nav-btn {
+  position: relative;
+  padding: 8px 18px;
+  color: #e5e7eb;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+/* Hover Glow Effect */
+.nav-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, #38bdf8, #0ea5e9);
+  border-radius: 30px;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.nav-btn:hover::before {
+  opacity: 1;
+}
+
+.nav-btn:hover {
+  color: #020617;
+  transform: translateY(-2px);
+}
+
+/* Active click animation */
+.nav-btn:active {
+  transform: scale(0.95);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+}
+
 }
