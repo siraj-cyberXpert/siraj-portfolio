@@ -87,3 +87,13 @@ footer{text-align:center;padding:20px;background:#020617;border-top:1px solid #3
 }
 
 }
+.nav-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, #38bdf8, #0ea5e9);
+  border-radius: 30px;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
