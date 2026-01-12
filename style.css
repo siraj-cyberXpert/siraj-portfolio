@@ -14,7 +14,13 @@ body{background:#020617;color:#e5e7eb}
 .card:hover{transform:translateY(-8px);box-shadow:0 0 15px #38bdf8}
 footer{text-align:center;padding:20px;background:#020617;border-top:1px solid #38bdf8}
 @media(max-width:768px){
-/* Navbar */
+
+  border-radius: 30px;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+/* Navbar Base */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -27,73 +33,74 @@ footer{text-align:center;padding:20px;background:#020617;border-top:1px solid #3
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 700;
 }
-
 .logo span {
   color: #38bdf8;
 }
 
-/* Nav Links */
+/* Menu */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 25px;
+  gap: 30px;
 }
 
-/* Animated Buttons */
-.nav-btn {
+/* Menu Items Entry Animation */
+.nav-links li {
+  opacity: 0;
+  transform: translateY(-15px);
+  animation: menuDrop 0.6s ease forwards;
+  animation-delay: calc(0.15s * var(--i));
+}
+
+/* Menu Links */
+.nav-links a {
   position: relative;
-  padding: 8px 18px;
-  color: #e5e7eb;
   text-decoration: none;
+  color: #e5e7eb;
   font-weight: 500;
-  border-radius: 30px;
-  transition: all 0.3s ease;
+  padding: 6px 4px;
+  transition: color 0.3s ease;
 }
 
-/* Hover Glow Effect */
-.nav-btn::before {
+/* Animated underline */
+.nav-links a::after {
   content: "";
   position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, #38bdf8, #0ea5e9);
-  border-radius: 30px;
-  opacity: 0;
-  z-index: -1;
-  transition: opacity 0.3s ease;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #38bdf8;
+  transition: width 0.3s ease;
 }
 
-.nav-btn:hover::before {
-  opacity: 1;
+.nav-links a:hover::after {
+  width: 100%;
 }
 
-.nav-btn:hover {
-  color: #020617;
-  transform: translateY(-2px);
+.nav-links a:hover {
+  color: #38bdf8;
 }
 
-/* Active click animation */
-.nav-btn:active {
+/* Click animation */
+.nav-links a:active {
   transform: scale(0.95);
 }
 
-/* Mobile responsive */
+/* Keyframes */
+@keyframes menuDrop {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
   }
-}
-
-}
-.nav-btn::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, #38bdf8, #0ea5e9);
-  border-radius: 30px;
-  opacity: 0;
-  z-index: -1;
-  transition: opacity 0.3s ease;
 }
